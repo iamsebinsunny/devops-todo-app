@@ -4,7 +4,7 @@ FROM node:10-alpine
 WORKDIR /usr/src/app
 
 # Copy both package.json and package-lock.json
-COPY package*.json ./
+COPY apps/todo/source/package*.json ./
 
 # Install app dependencies
 # RUN npm install
@@ -12,7 +12,7 @@ COPY package*.json ./
 RUN npm ci --only=production
 
 # Bundle app source
-COPY . .
+COPY apps/todo/source .
 
 EXPOSE 8080
 CMD [ "node", "app.js" ]
