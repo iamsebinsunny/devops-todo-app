@@ -9,9 +9,9 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: apps/argocd/
-    repoURL: https://github.tools.sap/I526709/DevOps-assignment
-    targetRevision: argocd
+    path: apps/argocd/source
+    repoURL: https://github.com/iamsebinsunny/devops-todo-app
+    targetRevision: main
   syncPolicy:
     automated:
       prune: true
