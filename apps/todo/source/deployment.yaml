@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: todo
-        image: thoba/todo-list-app:latest
+        image: sebinsunny/todo-app:latest
         ports:
         - containerPort: 8080
