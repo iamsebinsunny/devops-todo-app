@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: istio-profile
+  namespace: argocd
+  labels:
+    cluster: dev
+spec:
+  syncPolicy:
+    automated:
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+  project: default
+  source:
+    path: apps/istio/source
+    repoURL: https://github.com/iamsebinsunny/devops-todo-app
+    targetRevision: add-istio
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: istio-system
+
