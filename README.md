@@ -2,6 +2,13 @@ This is our BITS Pilani MTech DevOps Assignemnt.
 
 Title: To-Do List
 
+Team Members:
+
+Sebin Sunny
+Prashita Khunteta
+Keerthi G
+Srikesh Nair
+
 # how to access argocd ui
 kubectl port-forward svc/argocd-server -n argocd 8080:443
 
