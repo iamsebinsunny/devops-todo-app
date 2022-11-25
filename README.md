@@ -1,5 +1,6 @@
-dummy
-# devops-todo-app 
+This is our BITS Pilani MTech DevOps Assignemnt.
+
+Title: To-Do List
 
 # how to access argocd ui
 kubectl port-forward svc/argocd-server -n argocd 8080:443
