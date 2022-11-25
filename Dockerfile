@@ -5,3 +5,4 @@ WORKDIR /app
 COPY apps/todo/source/base/app .
 RUN yarn install --production
 CMD ["node", "src/index.js"]
+
