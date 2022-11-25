@@ -8,4 +8,4 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 
 
 # how to access application via port forwarding
-kubectl port-forward -n todo pods/todo-deployment-c96b48c56-fhgpb 8081:8080 
+kubectl port-forward -n todo pods/todo-deployment-c96b48c56-fhgpb 8081:8080
