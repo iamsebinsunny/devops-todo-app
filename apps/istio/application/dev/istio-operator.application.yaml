@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: istio-operator-dev
+  namespace: argocd
+  labels:
+    cluster: dev
+spec:
+  syncPolicy:
+    automated:
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+  project: default
+  source:
+    repoURL: https://github.com/istio/istio.git
+    targetRevision: 1.14.1
+    path: manifests/charts/istio-operator/
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: istio-operator
