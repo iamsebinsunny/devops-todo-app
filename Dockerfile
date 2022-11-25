@@ -4,7 +4,8 @@ FROM node:10-alpine
 WORKDIR /usr/src/app
 
 # Copy both package.json and package-lock.json
-COPY apps/todo/source/base/package*.json ./
+COPY apps/todo/source/base/package-lock.json ./
+COPY package.json ./
 
 # Install app dependencies
 # RUN npm install
