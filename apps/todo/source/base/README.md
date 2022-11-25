@@ -1,98 +1,42 @@
-# Todo list exercise
+# Docker Getting Started Tutorial
 
-## Prerequisites 
+This tutorial has been written with the intent of helping folks get up and running
+with containers and is designed to work with Docker Desktop. While not going too much 
+into depth, it covers the following topics:
 
-- [nodejs](https://nodejs.org/en/)
-> - [docker](https://docs.docker.com/) and [docker-compose](https://docs.docker.com/compose/)
-> - [helm](https://helm.sh/) and [minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/)
+- Running your first container
+- Building containers
+- Learning what containers are running and removing them
+- Using volumes to persist data
+- Using bind mounts to support development
+- Using container networking to support multi-container applications
+- Using Docker Compose to simplify the definition and sharing of applications
+- Using image layer caching to speed up builds and reduce push/pull size
+- Using multi-stage builds to separate build-time and runtime dependencies
 
-## Install
+## Getting Started
 
-```sh
-git clone https://github.com/thobalose/todo-list-app.git ; cd todo-list-app/
+If you wish to run the tutorial, you can use the following command after installing Docker Desktop:
+
+```bash
+docker run -d -p 80:80 docker/getting-started
 ```
 
-```sh
-npm install
+Once it has started, you can open your browser to [http://localhost](http://localhost).
+
+## Development
+
+This project has a `docker-compose.yml` file, which will start the mkdocs application on your
+local machine and help you see changes instantly.
+
+```bash
+docker-compose up
 ```
 
-## Run
+## Contributing
 
-```sh
-node app.js
-```
+If you find typos or other issues with the tutorial, feel free to create a PR and suggest fixes!
 
-Visit http://localhost:8080 in your browser
-
-## Test
-
-To run tests
-
-```sh
-npm test
-```
-
-## Docker
-
-To build a docker image for the todo-list-app and run it inside a container execute
-
-```sh
-docker build -t thoba/todo-list-app .
-```
-
-The above with create an image with the `latest` tag. To run the container execute
-
-```sh
-docker run -it -p 8080:8080 --name todo_list_app thoba/todo-list-app
-```
-
-You can also use `docker-compose` if you have it installed. To build and run the latest source using `docker-compose` execute
-
-```sh
-docker-compose up --build -d
-```
-
-and visit http://localhost:8080 in your browser
-
-## Helm chart
-
-To deploy the application to Minikube kindly see [`todo-list-chart/`](./todo-list-chart/).
-
-## Requirements
-
-### High level application requirements
-
-1. Multiple users should be able to view the shared public todo list
-2. Should be able to add items
-3. Should be able to delete items
-4. Should be able to edit items (Missing feature)
-5. Must be able to deploy in docker (Missing feature)
-
-### Tasks
-
-1. Add missing requirement #4 to the application
-2. Add sufficient test coverage to the application and update readme on how to run the tests
-3. Add missing requirement #5 to the application (Dockerfile and update readme with instructions)
-
-### Bonus
-
-4. Display test coverage after tests are executed
-5. Find and fix the XSS vulnerability in the application. Also make sure that it wont happen again by including a test.
-
-### Optional extra
-
- 6. Add a Helm chart for the application that is deployable on Minikube along with the required readme entry.
-
-> ### Notes
-> - Update the code as needed and document what you have done in the readme below
-> - Will be nice if you can git tag the tasks by number
-
-### Solution
-
-- Added `edittodo.ejs` page to allow for editing of todo.
-- Used `method-override` middleware in order to use `PUT` HTTP verb to edit item.
-- Used `docker` and `docker-compose` to containerized deployment.
-- Used `mocha`, `chai`, and `supertest` for testing.
-- Used [`istanbul`](https://istanbul.js.org/) to display test coverage.
-- Used `sanitizer` module to mitigate the XSS vulnerability.
-- Added Helm Chart.
+If you have ideas on how to make the tutorial better or new content, please open an issue first before working on your idea. While we love input, we want to keep the tutorial  scoped to newcomers.
+As such, we may reject ideas for more advanced requests and don't want you to lose any work you might
+have done. So, ask first and we'll gladly hear your thoughts!
