@@ -1,18 +1,7 @@
-FROM node:10-alpine
-
-# Create app directory
-WORKDIR /usr/src/app
-
-# Copy both package.json and package-lock.json
-COPY apps/todo/source/base/package*.json ./
-
-# Install app dependencies
-# RUN npm install
-# For production use
-RUN npm ci --only=production
-
-# Bundle app source
-COPY apps/todo/source/base .
-
-EXPOSE 8080
-CMD [ "node", "app.js" ]
+# syntax=docker/dockerfile:1
+FROM node:12-alpine
+RUN apk add --no-cache python2 g++ make
+WORKDIR /app
+COPY apps/new-todo/source/app .
+RUN yarn install --production
+CMD ["node", "src/index.js"]
