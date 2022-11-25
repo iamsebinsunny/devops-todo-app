@@ -9,9 +9,9 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: apps/todo/source
+    path: apps/new-todo/source
     repoURL: https://github.com/iamsebinsunny/devops-todo-app
-    targetRevision: add-pipeline
+    targetRevision: add_todo_argo
   syncPolicy:
     automated:
       prune: true
