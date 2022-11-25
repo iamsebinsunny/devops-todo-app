@@ -35,7 +35,7 @@ app.get('/todo', function (req, res) {
     .post('/todo/add/', function (req, res) {
         // Escapes HTML special characters in attribute values as HTML entities
         let newTodo = sanitizer.escape(req.body.newtodo);
-        if (req.body.newtodo != '') {
+        if (req.body.newtodo !== '') {
             todolist.push(newTodo);
         }
         res.redirect('/todo');
@@ -43,7 +43,7 @@ app.get('/todo', function (req, res) {
 
     /* Deletes an item from the to do list */
     .get('/todo/delete/:id', function (req, res) {
-        if (req.params.id != '') {
+        if (req.params.id !== '') {
             todolist.splice(req.params.id, 1);
         }
         res.redirect('/todo');
@@ -70,7 +70,7 @@ app.get('/todo', function (req, res) {
         let todoIdx = req.params.id;
         // Escapes HTML special characters in attribute values as HTML entities
         let editTodo = sanitizer.escape(req.body.editTodo);
-        if (todoIdx != '' && editTodo != '') {
+        if (todoIdx !== '' && editTodo !== '') {
             todolist[todoIdx] = editTodo;
         }
         res.redirect('/todo');
