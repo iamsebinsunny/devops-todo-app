@@ -15,7 +15,7 @@ spec:
   source:
     path: apps/istio/source
     repoURL: https://github.com/iamsebinsunny/devops-todo-app
-    targetRevision: add-istio
+    targetRevision: main
   destination:
     server: https://kubernetes.default.svc
     namespace: istio-system
