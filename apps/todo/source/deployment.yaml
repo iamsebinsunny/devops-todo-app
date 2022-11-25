@@ -1,4 +1,3 @@
-apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: todo-deployment
@@ -16,6 +15,6 @@ spec:
     spec:
       containers:
       - name: todo
-        image: sebinsunny/todo-app:1.1
+        image: sebinsunny/todo-app:1.0
         ports:
         - containerPort: 8080
