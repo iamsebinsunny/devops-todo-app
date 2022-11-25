@@ -6,5 +6,5 @@ spec:
   selector:
     app: todo
   ports:
-  - port: 3031
+  - port: 3001
     targetPort: 3000
