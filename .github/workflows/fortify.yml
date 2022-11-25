@@ -23,7 +23,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-    - /*
+    - main
 
 jobs:
   FoD-SAST-Scan:
