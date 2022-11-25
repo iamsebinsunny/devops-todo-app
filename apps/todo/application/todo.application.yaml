@@ -11,7 +11,7 @@ spec:
   source:
     path: apps/todo/source
     repoURL: https://github.com/iamsebinsunny/devops-todo-app
-    targetRevision: fix-todo
+    targetRevision: main
   syncPolicy:
     automated:
       prune: true
