@@ -9,7 +9,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: apps/new-todo/source
+    path: apps/todo/source
     repoURL: https://github.com/iamsebinsunny/devops-todo-app
     targetRevision: fix-todo
   syncPolicy:
