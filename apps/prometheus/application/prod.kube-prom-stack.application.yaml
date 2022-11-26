@@ -1,13 +1,15 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: kube-prometheus-stack
+  name: kube-prom-stack-prod
   namespace: argocd
   annotations:
     argocd.argoproj.io/sync-wave: "10"
+  labels:
+    cluster: prod
 spec:
   destination:
-    name: in-cluster
+    server: https://api.devops-prod.keerthigpi.shoot.canary.k8s-hana.ondemand.com
     namespace: monitoring
   project: default
   source:
@@ -17,6 +19,8 @@ spec:
       skipCrds: true
     chart: kube-prometheus-stack
   syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
     automated:
       prune: true
       selfHeal: true
