@@ -24,3 +24,6 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 
 kubectl port-forward -n todo pods/todo-deployment-c96b48c56-fhgpb 8081:8080
 
+# Monitoring
+As soon as a PR merge is successful, you will receive a teams notification.
+
