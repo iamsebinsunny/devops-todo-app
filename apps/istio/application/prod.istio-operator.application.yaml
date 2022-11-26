@@ -1,10 +1,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: istio-operator
+  name: istio-operator-prod
   namespace: argocd
   labels:
-    cluster: dev
+    cluster: prod
 spec:
   syncPolicy:
     automated:
@@ -17,5 +17,5 @@ spec:
     targetRevision: 1.14.1
     path: manifests/charts/istio-operator/
   destination:
-    server: https://kubernetes.default.svc
+    server: https://api.devops-prod.keerthigpi.shoot.canary.k8s-hana.ondemand.com
     namespace: istio-operator

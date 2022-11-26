@@ -1,17 +1,19 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: todo-app
+  name: todo-app-prod
   namespace: argocd
+  labels:
+    cluster: prod
 spec:
   destination:
     namespace: todo
-    server: https://kubernetes.default.svc
+    server: https://api.devops-prod.keerthigpi.shoot.canary.k8s-hana.ondemand.com
   project: default
   source:
     path: apps/todo/source
     repoURL: https://github.com/iamsebinsunny/devops-todo-app
-    targetRevision: main
+    targetRevision: production
   syncPolicy:
     automated:
       prune: true

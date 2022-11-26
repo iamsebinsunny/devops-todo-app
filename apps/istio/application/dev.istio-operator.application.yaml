@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: istio-profile
+  name: istio-operator-dev
   namespace: argocd
   labels:
     cluster: dev
@@ -13,10 +13,9 @@ spec:
     - CreateNamespace=true
   project: default
   source:
-    path: apps/istio/source
-    repoURL: https://github.com/iamsebinsunny/devops-todo-app
-    targetRevision: main
+    repoURL: https://github.com/istio/istio.git
+    targetRevision: 1.14.1
+    path: manifests/charts/istio-operator/
   destination:
     server: https://kubernetes.default.svc
-    namespace: istio-system
-
+    namespace: istio-operator

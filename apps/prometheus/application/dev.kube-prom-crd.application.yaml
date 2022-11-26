@@ -1,10 +1,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: kube-prometheus-stack-crds
+  name: kube-prom-stack-crds-dev
   namespace: argocd
   annotations:
     argocd.argoproj.io/sync-wave: "2"
+  labels:
+    cluster: dev
 spec:
   destination:
     name: in-cluster
